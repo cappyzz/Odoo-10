@@ -1,0 +1,32 @@
+								
+
+										** MT Software **
+
+Commands Installation for Odoo 10 :
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install python-dateutil python-docutils python-feedparser python-jinja2 python-ldap python-libxslt1 python-lxml python-mako python-mock python-openid python-psycopg2 python-psutil python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi poppler-utils python-pip python-pypdf python-passlib python-decorator gcc python-dev mc bzr python-setuptools python-markupsafe python-reportlab-accel python-zsi python-yaml python-argparse python-openssl python-egenix-mxdatetime python-usb python-serial lptools make python-pydot python-psutil python-paramiko poppler-utils python-pdftools antiword python-requests python-xlsxwriter python-suds python-psycogreen python-ofxparse python-gevent
+
+
+sudo apt-get install -y npm
+sudo npm install -g less less-plugin-clean-css
+
+sudo gedit /etc/apt/sources.list.d/pgdg.list
+add this line :
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql-9.6
+
+sudo su postgres
+cd
+createuser -s odoo
+createuser -s ubuntu_user_name
+exit
+sudo adduser --system --home=/opt/odoo --group odoo
+cd /opt/odoo
+sudo wget https://pypi.python.org/packages/a8/70/bd554151443fe9e89d9a934a7891aaffc63b9cb5c7d608972919a002c03c/gdata-2.0.18.tar.gz
+sudo tar zxvf gdata-2.0.18.tar.gz
+sudo chown -R odoo: gdata-2.0.18
