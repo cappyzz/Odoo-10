@@ -1,0 +1,2 @@
+"id","name","model_id/id","perm_read","perm_create","perm_write","perm_unlink","group_id/id","active"
+"outlook_sync.outlook","outlook_sync","odoo_outlook.model_odoo_outlook_outlook_sync","True","True","True","True","base.group_user","True"

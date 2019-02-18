@@ -1,0 +1,48 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="outlook_sync_form">
+            <field name="name">outlook_sync_form</field>
+            <field name="model">odoo_outlook.outlook_sync</field>
+            <field name="priority" eval="0"/>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration">
+                    <sheet>
+                        <h1>
+                            Synchronize Odoo with Outlook
+                        </h1>
+                        <h4>
+							Before installation, please close Microsoft Outlook. Installation is simple, the user only has to decide where to install the add-in. It is recommended to install the add-in in a folder that you have write access to (non-administrative users may have trouble installing to the default location in program files).<br/><br/>
+							Once installation is complete please start Microsoft Outlook. Navigate to the Odoo Connect tab and add your product key. If you signed up online your product key is in your e-mail. Click Add a Product Key and enter your product key. If the product key is correctly entered a confirmation message should appear.<br/><br/>
+							After entering your product key, click connection settings and enter the following:<br/>
+                            <label for="server" string="Set the server to: " class="oe_inline"/> <field name="server" class="oe_inline oe_form_label"/><br/>
+                            <label for="database" string="Set the database to: " class="oe_inline"/> <field name="database" class="oe_inline oe_form_label"/><br/>
+							Set the username to your login and enter your password and press save. If the information you entered is correct a login successful message should appear. If your login failed please make sure that everything is entered correctly.<br/><br/><br/>
+							After proper setup, press Synchronize to download your contacts and calendar events from Odoo. This may also be configured to happen periodically in the background in the Connection Settings menu.
+                        </h4>
+                        <button name="download_outlook" string="Download Outlook Add-in" type="object"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="outlook_sync_action">
+            <field name="name">Synchronize with Outlook</field>
+            <field name="res_model">odoo_outlook.outlook_sync</field>
+            <field name="priority" eval="1" />
+            <field name="target">inline</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+        </record>
+
+
+        <template id="assets_backend" name="odoo_outlook assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/odoo_outlook/static/src/js/thread.js"/>
+                <link href="/odoo_outlook/static/src/css/outlook.css" rel="stylesheet"/>
+            </xpath>
+        </template>
+
+        <menuitem id="sync_top_menu" name="Synchronize" sequence="1000" action="outlook_sync_action"/>
+        <!--<menuitem id="outlook_side_menu" name="Synchronize with Outlook" sequence="1000" parent="sync_top_menu"/>-->
+    </data>
+</openerp>
