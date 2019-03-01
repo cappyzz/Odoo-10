@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_openproject_res_users_tree" model="ir.ui.view">
+    <field name="name">openproject.res.users.tree</field>
+    <field name="model">openproject.res.users</field>
+    <field name="arch" type="xml">
+        <tree editable="top" create="false">
+            <field name="openproject_id"/>
+            <field name="name" readonly="1"/>
+            <field name="op_create_date"/>
+            <field name="op_write_date"/>
+            <field name="odoo_id"/>
+            <button string="Open External URL" type="object" name="action_open_external_url" icon="fa-external-link"/>
+        </tree>
+    </field>
+</record>
+
+</odoo>

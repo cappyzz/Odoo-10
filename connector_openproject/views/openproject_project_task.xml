@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_openproject_project_task_tree" model="ir.ui.view">
+    <field name="name">openproject.project.task.tree</field>
+    <field name="model">openproject.project.task</field>
+    <field name="arch" type="xml">
+        <tree create="false">
+            <field name="openproject_id" string="WP ID"/>
+            <field name="name" string="Subject"/>
+            <field name="project_id"/>
+            <field name="op_create_date"/>
+            <field name="op_write_date"/>
+            <button string="Open External URL" type="object" name="action_open_external_url" icon="fa-external-link"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_openproject_project_task_search" model="ir.ui.view">
+    <field name="name">openproject.project.task.search</field>
+    <field name="model">openproject.project.task</field>
+    <field name="arch" type="xml">
+        <search string="OpenProject Work Packages">
+            <field name="openproject_id" string="Work Package ID"/>
+            <field name="name" string="Subject"/>
+            <separator/>
+            <group expand="0" string="Group By">
+                <filter string="Project" name="group_project"
+                    context="{'group_by': 'project_id'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+</odoo>
